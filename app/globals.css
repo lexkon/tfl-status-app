@@ -116,9 +116,9 @@ main {
   @apply mt-4 mx-4 md:mx-8 lg:mx-12 mb-24
 }
 
-/* .btn-link {
+.btn-link {
   @apply rounded-md bg-slate-100 text-cyan-700 font-bold px-4 py-2 hover:text-cyan-950
-} */
+}
 
 .line-overview {
   @apply grid grid-cols-2 bg-[#faf5e1] text-cyan-700 items-center md:my-0.5 my-0.25 md:text-lg;
