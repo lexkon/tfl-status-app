@@ -1,20 +1,19 @@
 import LineOverview from "./LineOverview";
 import { getTubeData } from "../lib/utils";
 
-let data = {};
-
-try {
-    data = await getTubeData();
-} catch (err) {
-    return <p>Error loading tube data: {err.message}</p>;
-}
-
-const { lastUpdated, lines } = data;
-
 export default async function TubeOverview() {
+    let data = {};
+
+    try {
+        data = await getTubeData();
+    } catch (err) {
+        return <p>Error loading tube data: {err.message}</p>;
+    }
+
+    const { lastUpdated, lines } = data;
 
     return (
-        <div className='md:w-[50%] mx-auto'>
+        <div className='md:w-80% mx-auto'>
             <p className='mb-2 font-medium'>Last updated: {new Date(lastUpdated).toLocaleTimeString()}</p>
             <ul>
                 {lines.map(line => {

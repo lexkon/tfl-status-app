@@ -7,8 +7,8 @@ export default function Travel() {
             <Header />
             <div className="font-sans">
                 <main>
-                    <div >
-                        <h2 className='mb-4 font-bold'>TfL Tube Line Status Overview</h2>
+                    <div className='mb-12 mx-auto md:w-[80%]'>
+                        <h2 className='mb-4 font-medium tracking-tight'>TfL Tube Line Status Overview</h2>
                         <TubeOverview />
                     </div>
                 </main>

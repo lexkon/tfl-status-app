@@ -8,18 +8,19 @@ function transformTfLResponse(data) {
     return {
         lastUpdated: now,
         lines: data.map(line => {
-            const statusObj = line.lineStatuses[0]
-            const status = statusObj?.statusSeverityDescription || "Unknown"
+            const statusDescriptions = Array.from(
+                new Set(line.lineStatuses.map(status => status.statusSeverityDescription))
+            );
+
+            const lineStatus = statusDescriptions.join(' & ');
 
             return {
                 id: line.id,
                 name: line.name,
-                lineStatus: status,
-                hasDisruptions: (line.disruptions && line.disruptions.length > 0),
-                disruptions: line.disruptions || []
-            }
+                lineStatus
+            };
         })
-    }
+    };
 }
 
 export async function GET() {

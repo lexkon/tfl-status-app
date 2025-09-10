@@ -14,10 +14,19 @@
   --piccadilly: #003688;
   --victoria: #0098D4;
   --waterloo-city: #95CDBA;
+  --bakerloo-rgb: 179, 99, 5;
+  --central-rgb: 220, 36, 31;
+  --circle-rgb: 255, 211, 0;
+  --district-rgb: 0, 125, 51;
+  --hammersmith-city-rgb: 243, 169, 186;
+  --jubilee-rgb: 160, 165, 169;
+  --metropolitan-rgb: 155, 0, 86;
+  --northern-rgb: 0, 0, 0;
+  --piccadilly-rgb: 0, 54, 136;
+  --victoria-rgb: 0, 152, 212;
+  --waterloo-city-rgb: 149, 205, 186;
 }
 
-@layer utilities {
-  /* Background colours */
   .bg-bakerloo { background-color: var(--bakerloo); }
   .bg-central { background-color: var(--central); }
   .bg-circle { background-color: var(--circle); }
@@ -55,7 +64,20 @@
   .border-piccadilly { border-color: var(--piccadilly); }
   .border-victoria { border-color: var(--victoria); }
   .border-waterloo-city { border-color: var(--waterloo-city); }
-}
+
+  /* Text decoration colours */
+.decoration-bakerloo { text-decoration-color: var(--bakerloo); }
+.decoration-central { text-decoration-color: var(--central); }
+.decoration-circle { text-decoration-color: var(--circle); }
+.decoration-district { text-decoration-color: var(--district); }
+.decoration-hammersmith-city { text-decoration-color: var(--hammersmith-city); }
+.decoration-jubilee { text-decoration-color: var(--jubilee); }
+.decoration-metropolitan { text-decoration-color: var(--metropolitan); }
+.decoration-northern { text-decoration-color: var(--northern); }
+.decoration-piccadilly { text-decoration-color: var(--piccadilly); }
+.decoration-victoria { text-decoration-color: var(--victoria); }
+.decoration-waterloo-city { text-decoration-color: var(--waterloo-city); }
+
 
 
 @theme inline {
@@ -79,25 +101,33 @@ body {
 }
 
 h1 {
-  @apply text-4xl font-black text-slate-700
+  @apply md:text-6xl text-4xl font-black text-slate-700
 }
 
 h2 {
-  @apply text-lg md:text-2xl text-slate-600
+  @apply text-slate-600 md:text-2xl text-xl font-semibold
+}
+
+h3 {
+  @apply text-neutral-900 md:text-2xl text-xl font-semibold
 }
 
 main {
-  @apply mt-4 mx-4 md:mx-8 lg:mx-12
+  @apply mt-4 mx-4 md:mx-8 lg:mx-12 mb-24
 }
 
-.btn-link {
-  @apply rounded-md bg-slate-100 text-cyan-700 font-bold px-4 py-2 hover:text-red-950
-}
+/* .btn-link {
+  @apply rounded-md bg-slate-100 text-cyan-700 font-bold px-4 py-2 hover:text-cyan-950
+} */
 
 .line-overview {
-  @apply grid grid-cols-2 bg-[#faf5e1] text-cyan-700 items-center md:my-0.5 my-0.25 md:text-xl;
+  @apply grid grid-cols-2 bg-[#faf5e1] text-cyan-700 items-center md:my-0.5 my-0.25 md:text-lg;
 }
 
 .name-cell {
-  @apply md:py-4 p-2;
+  @apply md:py-4 py-4 md:pl-4 pl-2;
+}
+
+#line-info p {
+  @apply md:text-lg;
 }
