@@ -13,7 +13,7 @@ export default async function TubeOverview() {
     const { lastUpdated, lines } = data;
 
     return (
-        <div className='md:w-80% mx-auto'>
+        <div className='md:w-80% mx-auto p-8'>
             <p className='mb-2 font-medium'>Last updated: {new Date(lastUpdated).toLocaleTimeString()}</p>
             <ul>
                 {lines.map(line => {

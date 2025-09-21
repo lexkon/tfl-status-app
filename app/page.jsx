@@ -1,21 +1,20 @@
 import Link from "next/link";
-import Header from "./components/Header";
+import Hero from "./components/Hero";
+import Testimonials from "./components/Testimonials";
 
 export default function Home() {
   return (
     <>
-      <Header />
-      <div className="font-sans">
-        <main>
-          <h2 className='mb-8 font-medium italic'>GeneriCorp drives innovative, scalable solutions that harness synergy, optimise workflows, and delivers transformative value across dynamic, fast-moving markets across London</h2>
+      <Hero />
 
-          <div className='flex flow-row'>
-            <Link href='/travel' className='btn-link mx-auto'>
-              Travel Status Dashboard
-            </Link>
-          </div>
-        </main>
-      </div >
+      <section id='employee-hub' className='flex flow-row'>
+        <Link href='/travel' className='btn-link mx-auto md:text-xl w-auto text-center'>
+          Access Employee Travel Hub
+        </Link>
+      </section>
+
+      <Testimonials />
+
     </>
   );
 }

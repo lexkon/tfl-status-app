@@ -3,19 +3,17 @@ import Link from "next/link"
 
 export default function Header() {
     return (
-        <>
-            <header className='flex flex-row justify-between items-center p-4 md:p-8'>
-                <Link href='/'>
-                    <h1>GeneriCorp.</h1>
-                </Link>
+        <header>
+            <Link href='/'>
+                <h1 className='text-[var(--genericorp-coral)]'>GeneriCorp.</h1>
+            </Link>
 
-                <Image
-                    src='/logo.png'
-                    width={50}
-                    height={50}
-                    alt='GeneriCorp. logo'
-                />
-            </header>
-        </>
+            <Image
+                src='/logo.png'
+                width={50}
+                height={50}
+                alt='GeneriCorp. logo'
+            />
+        </header>
     )
 }
