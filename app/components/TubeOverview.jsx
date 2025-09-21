@@ -1,4 +1,5 @@
 import LineOverview from "./LineOverview";
+import Ping from "./Ping";
 import { getTubeData } from "../lib/utils";
 
 export default async function TubeOverview() {
@@ -13,8 +14,11 @@ export default async function TubeOverview() {
     const { lastUpdated, lines } = data;
 
     return (
-        <div className='md:w-80% mx-auto p-8'>
-            <p className='mb-2 font-medium'>Last updated: {new Date(lastUpdated).toLocaleTimeString()}</p>
+        <div className='mx-auto'>
+            <div className="flex flex-row gap-2 mb-2 items-center">
+                <p className='font-medium md:text-lg'>Last updated: {new Date(lastUpdated).toLocaleTimeString()}</p>
+                <Ping />
+            </div>
             <ul>
                 {lines.map(line => {
                     return (

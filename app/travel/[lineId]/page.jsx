@@ -1,4 +1,3 @@
-import Header from "@/app/components/Header"
 import Link from "next/link"
 import { tubeLineClasses } from "@/app/lib/tubeColours"
 
@@ -25,7 +24,7 @@ export default async function LinePage({ params }) {
         >
 
             <div className='flex flex-row items-center justify-between'>
-                <h1 className={`text-neutral-800 mb-4 underline underline-offset-4 decoration-${id}`}>{name}</h1>
+                <h2 className={`text-neutral-800 mb-4 underline underline-offset-4 decoration-${id}`}>{name}</h2>
                 <Link href="/travel" className={`rounded-md ${tubeLineClasses[id]} font-bold px-4 py-2`}>Go Back</Link>
             </div>
 
