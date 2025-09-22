@@ -8,6 +8,7 @@ import Disruptions from "@/app/components/Disruptions"
 
 export default async function LinePage({ params }) {
     const { lineId } = await params
+    const lineIdLower = lineId.toLowerCase()
     const capitalisedLine = lineId.charAt(0).toUpperCase() + lineId.slice(1);
 
     let data = {}
@@ -20,7 +21,7 @@ export default async function LinePage({ params }) {
         return <p>Error loading tube data: {err.message}</p>
     }
 
-    lineInfo = data.lines.find(line => line.id === lineId)
+    lineInfo = data.lines.find(line => line.id === lineIdLower)
 
     if (!lineInfo) {
         return (

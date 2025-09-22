@@ -1,6 +1,6 @@
 let serverCache = null
 let lastFetch = null
-const CACHE_DURATION = 1 * 60 * 1000
+const CACHE_DURATION = 60000
 
 function transformTfLResponse(data) {
     const now = new Date().toISOString()
