@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import LineOverview from "./LineOverview";
 import Ping from "./Ping";
 import { getTubeStatus } from "../lib/tfl";

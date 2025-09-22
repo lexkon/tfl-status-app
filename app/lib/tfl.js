@@ -1,6 +1,6 @@
 let serverCache = null
 let lastFetch = null
-const CACHE_DURATION = 5 * 60 * 1000
+const CACHE_DURATION = 1 * 60 * 1000
 
 function transformTfLResponse(data) {
     const now = new Date().toISOString()
@@ -41,7 +41,8 @@ export async function getTubeStatus() {
     }
 
     const response = await fetch(
-        `https://api.tfl.gov.uk/Line/Mode/tube/Status?app_key=${process.env.PRIMARY_KEY}`
+        `https://api.tfl.gov.uk/Line/Mode/tube/Status?app_key=${process.env.PRIMARY_KEY}`,
+        { cache: 'no-store' }
     )
     if (!response.ok) throw new Error(`TfL API responded: ${response.status}`)
 
