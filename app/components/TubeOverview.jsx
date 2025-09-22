@@ -1,6 +1,7 @@
 import LineOverview from "./LineOverview";
 import Ping from "./Ping";
 import { getTubeStatus } from "../lib/tfl";
+import LastUpdated from "./LastUpdated";
 
 export default async function TubeOverview() {
     let data = {}
@@ -14,20 +15,18 @@ export default async function TubeOverview() {
     const { lastUpdated, lines } = data
 
     return (
-        <div className='mx-auto'>
-            <div className="flex flex-row gap-2 mb-2 items-center">
-                <p className='font-medium md:text-lg'>
-                    Last updated: {new Date(lastUpdated).toLocaleTimeString()}
-                </p>
+        <div id='tube-overview'>
+            <div id='tube-updates'>
+                <LastUpdated date={lastUpdated} />
                 <Ping />
             </div>
-            <ul>
+            <ul id='tube-lines'>
                 {lines.map(line => (
                     <li key={line.id}>
                         <LineOverview line={line} />
                     </li>
                 ))}
             </ul>
-        </div>
+        </div >
     );
 }

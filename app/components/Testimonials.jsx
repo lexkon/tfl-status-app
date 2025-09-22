@@ -1,7 +1,7 @@
 export default function Testimonials() {
     return (
         <section id='testimonials'>
-            <h2 className='text-[var(--genericorp-coral)]'>What our clients say</h2>
+            <h2 className='text-[var(--genericorp-coral)] mb-4'>What our clients say</h2>
 
             <div className='quotes'>
                 <div className='quote'>

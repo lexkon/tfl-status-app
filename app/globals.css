@@ -6,7 +6,7 @@
   --genericorp-navy: #1A2E40;
   --genericorp-teal: #2BA6A6;
   --genericorp-sand: #D9CBA3;
-  --genericorp-slate: #708090;
+  --genericorp-slate: #52575d;
   --genericorp-coral: #FF6F61;  
   --bakerloo: #B36305;
   --central: #DC241F;
@@ -82,7 +82,6 @@
 .decoration-victoria { text-decoration-color: var(--victoria); }
 .decoration-waterloo-city { text-decoration-color: var(--waterloo-city); }
 
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -118,12 +117,16 @@ footer {
   @apply mt-8 md:mt-12 py-8 flex flex-row justify-around bg-[var(--genericorp-sand)]/20
 }
 
+#social-links {
+  @apply flex flex-col md:flex-row gap-2 md:gap-4 text-left
+}
+
 #employee-hub {
   @apply p-8
 }
 
 #testimonials {
-  @apply p-8 md:space-y-8 space-y-2 md:px-18
+  @apply px-8 md:px-18
 }
 
 .quotes {
@@ -134,8 +137,44 @@ footer {
   @apply p-6 text-[var(--genericorp-slate)] md:text-lg bg-[var(--genericorp-sand)]/10 rounded-2xl border-1 border-[var(--genericorp-slate)]/10 shadow-[#1A2E40]/10 md:shadow-2xl shadow-md
 }
 
+#tube-lines {
+  @apply shadow-[#1A2E40]/10 md:shadow-2xl shadow-xl
+}
+
 #tube-page {
   @apply mx-auto p-8 md:space-y-8 md:px-24
+}
+
+#tube-updates {
+  @apply flex flex-row gap-2 md:gap-4 items-center font-medium md:text-lg text-[var(--genericorp-slate)] mb-2 md:mb-4
+}
+
+#not-a-line {
+  @apply p-8 md:px-32 mt-8 md:my-24 
+}
+
+#line-info {
+  @apply mx-auto w-[80%] mt-8 md:my-24 p-8 md:p-16 rounded-2xl border-1 border-[var(--genericorp-slate)]/10 shadow-[#1A2E40]/10 md:shadow-2xl shadow-md
+}
+
+#line-info-header {
+  @apply flex flex-row justify-between items-center mb-3
+}
+
+#line-info p {
+  @apply md:text-lg;
+}
+
+#disruption-info {
+  @apply mb-6
+}
+
+#disruption-info p {
+  @apply md:text-lg text-[var(--genericorp-slate)] mb-1
+}
+
+#not-found {
+  @apply flex flex-col items-center justify-center h-screen text-center text-[var(--genericorp-slate)]
 }
 
 /* HTML Tags */
@@ -145,11 +184,11 @@ h1 {
 }
 
 h2 {
-  @apply md:text-4xl text-xl mb-4 font-semibold leading-8 md:leading-12
+  @apply md:text-4xl text-2xl font-semibold leading-8 md:leading-12
 }
 
 h3 {
-  @apply text-neutral-900 md:text-2xl text-xl font-semibold
+  @apply md:text-2xl text-xl font-semibold
 }
 
 a {
@@ -160,7 +199,6 @@ li {
   @apply text-[var(--genericorp-slate)] md:text-lg font-sans
 }
 
-
 /* Customs */
 
 .blur-overlay {
@@ -168,7 +206,7 @@ li {
 }
 
 .btn-link {
-  @apply text-center rounded-md bg-[var(--genericorp-teal)]/70 text-white font-bold px-4 py-2
+  @apply text-center rounded-md bg-[var(--genericorp-teal)]/70 text-white font-bold px-4 py-2 my-4 md:my-8 hover:bg-[var(--genericorp-teal)]/90 duration-200
 }
 
 .line-overview {
@@ -179,9 +217,6 @@ li {
   @apply md:py-4 py-4 md:pl-4 pl-2;
 }
 
-#line-info p {
-  @apply md:text-lg;
-}
 
 /* Animations */
 

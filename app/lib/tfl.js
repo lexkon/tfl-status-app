@@ -47,7 +47,6 @@ export async function getTubeStatus() {
 
     const rawData = await response.json()
     const transformed = transformTfLResponse(rawData)
-    console.log(transformed)
 
     serverCache = transformed
     lastFetch = now

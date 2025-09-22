@@ -1,81 +1,64 @@
 import Link from "next/link"
+// import Ping from "@/app/components/Ping"
+import InvalidLineMessage from "@/app/components/InvalidLineMessage"
+import LineStatus from "@/app/components/LineStatus"
 import { tubeLineClasses } from "@/app/lib/tubeColours"
-import Ping from "@/app/components/Ping"
+import { getTubeStatus } from "@/app/lib/tfl"
+import Disruptions from "@/app/components/Disruptions"
 
 export default async function LinePage({ params }) {
     const { lineId } = await params
+    const capitalisedLine = lineId.charAt(0).toUpperCase() + lineId.slice(1);
 
-    const res = await fetch(`https://api.tfl.gov.uk/Line/${lineId}/Status`, {
-        cache: "no-store"
-    })
+    let data = {}
+    let lineInfo = {}
 
-    if (!res.ok) {
-        throw new Error(`TfL API failed: ${res.status}`)
+
+    try {
+        data = await getTubeStatus()
+    } catch (err) {
+        return <p>Error loading tube data: {err.message}</p>
     }
 
-    const data = await res.json()
+    lineInfo = data.lines.find(line => line.id === lineId)
 
-    const lineData = data[0]
-    const { id, name, created, lineStatuses } = lineData
+    if (!lineInfo) {
+        return (
+            <>
+                <InvalidLineMessage line={capitalisedLine} />
+            </>
+        )
+    }
+    const { id, name, lineStatus, disruptions } = lineInfo
 
     return (
-        <div
-            id='line-info'
-            className={`mb-4 md:w-[75%] mx-auto md:p-6 p-4 rounded-lg`}
-            style={{ backgroundColor: `rgba(var(--${id}-rgb), 0.1)` }}
-        >
+        <>
+            <div
+                id='line-info'
+                style={{ backgroundColor: `rgba(var(--${id}-rgb), 0.1)` }}
+            >
+                <div id='line-info-header'>
+                    <h1 className={`underline underline-offset-4 decoration-${id}`}>{name}</h1>
+                    <Link href="/travel" className={`rounded-md ${tubeLineClasses[id]} font-bold px-4 py-2`}>Go Back</Link>
+                </div>
 
-            <div className='flex flex-row items-center justify-between'>
-                <h2 className={`text-neutral-800 mb-4 underline underline-offset-4 decoration-${id}`}>{name}</h2>
-                <Link href="/travel" className={`rounded-md ${tubeLineClasses[id]} font-bold px-4 py-2`}>Go Back</Link>
-            </div>
+                {disruptions.length === 0 &&
+                    <>
+                        <LineStatus id={id} lastUpdated={data.lastUpdated} />
+                        <p className='text-[var(--genericorp-slate)] mt-2'>We can't wait to see you in the office</p>
+                    </>
+                }
 
-            <p className="mb-1">
-                <span className='font-bold'>Last TfL update:</span> {new Date(created).toLocaleDateString()}{" "}
-                {new Date(created).toLocaleTimeString()}
-            </p>
-            <p className="mb-1">
-                <span className='font-bold'>Last fetched:</span> {new Date().toLocaleDateString()}{" "}
-                {new Date().toLocaleTimeString()}
-            </p>
+                {disruptions.length > 0 &&
+                    <>
+                        <LineStatus id={id} lastUpdated={data.lastUpdated} lineStatus={lineStatus} />
 
-            {lineStatuses[0].statusSeverityDescription === 'Good Service' &&
-                <>
-                    <h2>No disruptions on the line</h2>
-                    <Ping />
-                </>
-            }
+                        <Disruptions id={id} disruptions={disruptions} />
 
-            <h2 className="mt-4 mb-2 font-semibold">Disruptions</h2>
+                    </>
+                }
 
-            {lineStatuses.map((status, index) => {
-                const { statusSeverityDescription, disruption, validityPeriods } = status
-                if (!disruption) return null
-
-                const fromDate = validityPeriods[0]?.fromDate
-                const toDate = validityPeriods[0]?.toDate
-
-                return (
-                    <div key={index} className="mb-4">
-                        <p className='mb-1'>
-                            <span className="font-bold">Severity:</span>
-                            <span className='italic font-medium'>
-                                {" "}{statusSeverityDescription}
-                            </span>
-                        </p>
-                        <p className='mb-1'>
-                            <span className="font-bold">Reason:</span> {disruption.description}
-                        </p>
-                        {fromDate && toDate && (
-                            <p>
-                                <span className="font-bold mb-1">Valid From:</span>{" "}
-                                {new Date(fromDate).toLocaleString()} <br />
-                                <span className="font-bold mb-1">Valid To:</span> {new Date(toDate).toLocaleString()}
-                            </p>
-                        )}
-                    </div>
-                )
-            })}
-        </div>
+            </div >
+        </>
     )
 }

@@ -1,5 +1,5 @@
-import Link from "next/link";
 import Hero from "./components/Hero";
+import HubLink from "./components/HubLink"
 import Testimonials from "./components/Testimonials";
 
 export default function Home() {
@@ -8,9 +8,7 @@ export default function Home() {
       <Hero />
 
       <section id='employee-hub' className='flex flow-row'>
-        <Link href='/travel' className='btn-link mx-auto md:text-xl w-auto text-center'>
-          Access Employee Travel Hub
-        </Link>
+        <HubLink linkText='Access Employee Travel Hub' />
       </section>
 
       <Testimonials />

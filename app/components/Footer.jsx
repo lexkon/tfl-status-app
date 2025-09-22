@@ -1,7 +1,7 @@
 export default function Footer() {
     return (
         <footer>
-            <ul className='flex flex-col md:flex-row gap-2 md:gap-4 text-left'>
+            <ul id='social-links'>
                 <li><a className='text-[#0077B5] hover-fade' href="#">LinkedIn</a></li>
                 <li><a className="text-black hover-fade" href="#">X</a></li>
                 <li><a className="text-[#E1306C] hover-fade" href="#">Instagram</a></li>

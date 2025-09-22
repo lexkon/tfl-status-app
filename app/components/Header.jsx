@@ -8,12 +8,12 @@ export default function Header() {
                 <h1 className='text-[var(--genericorp-coral)]'>GeneriCorp.</h1>
             </Link>
 
-            <Image
+            {/* <Image
                 src='/logo.png'
                 width={50}
                 height={50}
                 alt='GeneriCorp. logo'
-            />
+            /> */}
         </header>
     )
 }
