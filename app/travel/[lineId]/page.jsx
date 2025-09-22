@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { tubeLineClasses } from "@/app/lib/tubeColours"
+import Ping from "@/app/components/Ping"
 
 export default async function LinePage({ params }) {
     const { lineId } = await params
@@ -13,6 +14,7 @@ export default async function LinePage({ params }) {
     }
 
     const data = await res.json()
+
     const lineData = data[0]
     const { id, name, created, lineStatuses } = lineData
 
@@ -37,8 +39,14 @@ export default async function LinePage({ params }) {
                 {new Date().toLocaleTimeString()}
             </p>
 
+            {lineStatuses[0].statusSeverityDescription === 'Good Service' &&
+                <>
+                    <h2>No disruptions on the line</h2>
+                    <Ping />
+                </>
+            }
+
             <h2 className="mt-4 mb-2 font-semibold">Disruptions</h2>
-            {lineStatuses.length === 0 && <p>No disruptions on the line</p>}
 
             {lineStatuses.map((status, index) => {
                 const { statusSeverityDescription, disruption, validityPeriods } = status
