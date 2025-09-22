@@ -1,16 +1,9 @@
 'use client'
 
+import { formatDate } from "../lib/utils"
+
 export default function LastUpdated({ date }) {
-    const newDate = new Date(date)
-    const formatted = newDate.toLocaleString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: '2-digit',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: true
-    })
+    const formatted = formatDate(date)
 
     return <p><span className='font-bold'>Last updated:</span> {formatted}</p>
 }
