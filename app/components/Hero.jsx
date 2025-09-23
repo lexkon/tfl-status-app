@@ -5,6 +5,7 @@ export default function Hero() {
                 className="absolute top-0 left-0 h-full w-full object-cover -z-10"
                 src="/hero.mp4"
                 autoPlay
+                playsInline
                 muted
             />
 
