@@ -114,12 +114,56 @@ footer {
   @apply flex flex-col md:flex-row gap-2 md:gap-4 text-left
 }
 
+#hero {
+  @apply relative h-[60vh] md:h-128 w-full overflow-hidden py-16 px-8 md:px-24
+}
+
+#hero-text {
+  @apply relative flex z-10 h-full items-center justify-center text-center
+}
+
 #employee-hub {
   @apply p-8
 }
 
-#testimonials {
-  @apply px-8 md:px-18
+#testimonials, #newsletter {
+  @apply px-8 md:px-18 pb-12
+}
+
+#newsletter-form {
+  @apply flex flex-col p-6 md:px-24 text-[var(--genericorp-slate)] md:text-lg bg-[var(--genericorp-sand)]/10 rounded-2xl border-1 border-[var(--genericorp-slate)]/10 shadow-[#1A2E40]/10 md:shadow-2xl shadow-md
+}
+
+.input-field-container {
+  @apply flex flex-col mb-2 md:mb-4 md:grid;
+  grid-template-columns: 100px 1fr;
+}
+
+label {
+  @apply font-bold text-[var(--genericorp-slate)] mb-1
+}
+
+input {
+  @apply border-1 border-[var(--genericorp-slate)]/30 rounded-md px-2 mb-2
+}
+
+#form-buttons-container {
+  @apply flex flex-row justify-around mt-4
+}
+
+#newsletter-reset-btn {
+  @apply text-center rounded-md bg-[var(--genericorp-slate)]/70 text-white font-bold px-8 py-2 hover:bg-[var(--genericorp-slate)]/90 duration-200
+}
+
+#newsletter-submit-btn {
+  @apply text-center rounded-md bg-[var(--genericorp-teal)]/70 text-white font-bold px-8 py-2 hover:bg-[var(--genericorp-teal)]/90 duration-200
+}
+
+#success-message {
+  @apply text-left space-y-2 p-6 text-[var(--genericorp-slate)] md:text-lg bg-[var(--genericorp-sand)]/10 rounded-2xl border-1 border-[var(--genericorp-slate)]/10 shadow-[#1A2E40]/10 md:shadow-2xl shadow-md
+}
+#success-message > p {
+  @apply text-lg text-[var(--genericorp-slate)]
 }
 
 .quotes {

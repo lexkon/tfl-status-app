@@ -1,5 +1,6 @@
 import Hero from "./components/Hero";
 import HubLink from "./components/HubLink"
+import Newsletter from "./components/Newsletter";
 import Testimonials from "./components/Testimonials";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
 
       <Testimonials />
 
+      <Newsletter />
     </>
   );
 }

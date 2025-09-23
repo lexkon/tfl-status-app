@@ -18,7 +18,7 @@ export default function NotFound() {
     return (
         <div id='not-found'>
             <h1 className='text-[var(--genericorp-coral)] mb-2 md:mb-4'>Page not found</h1>
-            <p className='mb-2 md:mb-4'>Redirecting you to the homepage</p>
+            <p className='text-lg md:text-xl mb-2'>Redirecting you to the homepage</p>
             <Link href='/' className='btn-link'>Click here if you're not automatically redirected</Link>
         </div>
     )
