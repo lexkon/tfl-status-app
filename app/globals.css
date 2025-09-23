@@ -160,10 +160,10 @@ input {
 }
 
 #success-message {
-  @apply text-left space-y-2 p-6 text-[var(--genericorp-slate)] md:text-lg bg-[var(--genericorp-sand)]/10 rounded-2xl border-1 border-[var(--genericorp-slate)]/10 shadow-[#1A2E40]/10 md:shadow-2xl shadow-md
+  @apply text-left md:text-center space-y-2 p-6 text-[var(--genericorp-slate)] md:text-lg bg-[var(--genericorp-sand)]/10 rounded-2xl border-1 border-[var(--genericorp-slate)]/10 shadow-[#1A2E40]/10 md:shadow-2xl shadow-md
 }
 #success-message > p {
-  @apply text-lg text-[var(--genericorp-slate)]
+  @apply md:text-lg text-[var(--genericorp-slate)]
 }
 
 .quotes {
