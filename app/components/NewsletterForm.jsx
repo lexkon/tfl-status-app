@@ -35,7 +35,7 @@ export default function NewsletterForm() {
         return (
             <div id='success-message'>
                 <h2 className='text-[var(--genericorp-teal)]'>Thank you for subscribing</h2>
-                <p>We're excited for you read our regular <span className='line-through italic text-xs'>spam</span> newsletter</p>
+                <p>We're excited for you to read our regular <span className='line-through italic text-xs'>spam</span> newsletter</p>
                 <p>If you signed up by mistake then check your email as we've made it really <span className='line-through italic text-xs'>difficult</span> easy to unsubscribe at any time 🙂</p>
             </div>
         )
